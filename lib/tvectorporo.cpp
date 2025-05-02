@@ -38,7 +38,7 @@ TVectorPoro::~TVectorPoro() {
     }
 }
 
-TVectorPoro & TVectorPoro::operator=(TVectorPoro &tvectorporo2){
+TVectorPoro & TVectorPoro::operator=(const TVectorPoro &tvectorporo2){
     if(this != &tvectorporo2){
         (*this).~TVectorPoro();
         dimension = tvectorporo2.dimension;

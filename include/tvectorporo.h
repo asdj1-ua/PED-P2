@@ -17,7 +17,7 @@ class TVectorPoro{
         TVectorPoro(int dimension); 
         TVectorPoro(TVectorPoro &); 
         ~TVectorPoro(); 
-        TVectorPoro & operator=(TVectorPoro &); 
+        TVectorPoro & operator=(const TVectorPoro &); 
         bool operator==(const TVectorPoro &) const; 
         bool operator!=(TVectorPoro &); 
         TPoro &operator[](int); 

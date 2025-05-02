@@ -5,32 +5,53 @@ using namespace std;
 int
 main(void)
 {
-/*******************************************************************/
-/***************** CONSTR. COPIA , "=" ; posible copia de punteros */
-/*******************************************************************/
+/**********************************************/
+/***************** ALTURA, NODOS, NODOSHOJA   */
+/**********************************************/
   
   TABBPoro a;
 
-  TPoro p1(1,2,1,(char *) "rojo");
-  TPoro p2(1,2,2,(char *) "verde");
+  TPoro p100(1,2,100,(char *) "rojo");
+  TPoro p50(1,2,50,(char *) "rojo");
+  TPoro p20(1,2,20,(char *) "rojo");
+  TPoro p110(1,2,110,(char *) "rojo");
 
-  a.Insertar(p1);
+  cout <<"Altura: "<<a.Altura()<<endl;
+  cout <<"Nodos: "<<a.Nodos()<<endl;
+  cout <<"NodosHoja: "<<a.NodosHoja()<<endl;
+  cout <<"Raiz: "<<a.Raiz()<<endl;
 
-  TABBPoro b(a), c;
-  c=b;
+  a.Insertar(p100);
+  cout <<"Altura: "<<a.Altura()<<endl;
+  cout <<"Nodos: "<<a.Nodos()<<endl;
+  cout <<"NodosHoja: "<<a.NodosHoja()<<endl;
+  cout <<"Raiz: "<<a.Raiz()<<endl;
 
-  a.Insertar(p2);
-  if( a.Inorden() == b.Inorden() )
-        cout << "MAL! SE HAN COPIADO PUNTEROS" << endl;
-  else
-	cout << "CORRECTO CONSTRUCTOR DE COPIA" << endl;
+  a.Insertar(p50);
+  cout <<"Altura: "<<a.Altura()<<endl;
+  cout <<"Nodos: "<<a.Nodos()<<endl;
+  cout <<"NodosHoja: "<<a.NodosHoja()<<endl;
+  cout <<"Raiz: "<<a.Raiz()<<endl;
+
+  a.Insertar(p20);
+  cout <<"Altura: "<<a.Altura()<<endl;
+  cout <<"Nodos: "<<a.Nodos()<<endl;
+  cout <<"NodosHoja: "<<a.NodosHoja()<<endl;
+  cout <<"Raiz: "<<a.Raiz()<<endl;
+
+  a.Insertar(p110);
+  cout <<"Altura: "<<a.Altura()<<endl;
+  cout <<"Nodos: "<<a.Nodos()<<endl;
+  cout <<"NodosHoja: "<<a.NodosHoja()<<endl;
+  cout <<"Raiz: "<<a.Raiz()<<endl;
+
+  a.Borrar(p20);
+  cout <<"Altura: "<<a.Altura()<<endl;
+  cout <<"Nodos: "<<a.Nodos()<<endl;
+  cout <<"NodosHoja: "<<a.NodosHoja()<<endl;
+  cout <<"Raiz: "<<a.Raiz()<<endl;
 
 
-  b.Insertar(p2);
-  if( b.Inorden() == c.Inorden() )
-        cout << "MAL! SE HAN COPIADO PUNTEROS" << endl;
-  else
-	cout << "CORRECTA ASIGNACION" << endl;
+  return 1; 
 
-  return 1;
 }

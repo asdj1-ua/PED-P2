@@ -243,11 +243,39 @@ TVectorPoro TABBPoro::Postorden() {
     return v;
 }
 
-/*
+
 TVectorPoro TABBPoro::Niveles(){
-    //sin hacer
+    TVectorPoro vector;
+    if (nodo == nullptr) {
+        return vector;
+    }
+
+    queue<TABBPoro*> cola;
+    cola.push(this);
+
+    int pos = 1; // para insertar en el TVectorPoro
+    int total = this->Nodos(); // saber cuántos nodos hay en total
+    vector = TVectorPoro(total); // redimensionamos el vector
+
+    while (!cola.empty()) {
+        TABBPoro* actual = cola.front();
+        cola.pop();
+
+        if (actual->nodo != nullptr) {
+            vector[pos] = actual->nodo->item;
+            pos++;
+
+            if (actual->nodo->iz != nullptr && actual->nodo->iz->nodo != nullptr)
+                cola.push(actual->nodo->iz);
+
+            if (actual->nodo->de != nullptr && actual->nodo->de->nodo != nullptr)
+                cola.push(actual->nodo->de);
+        }
+    }
+
+    return vector;
 }
-*/
+
 
 TABBPoro TABBPoro::operator+(TABBPoro &arbol) {
     TABBPoro res(*this);
@@ -268,6 +296,7 @@ TABBPoro TABBPoro::operator-(TABBPoro &arbol) {
     }
     return res;
 }
-/*
-firend os stream
-*/
+ostream& operator<<(ostream &os, TABBPoro &abb) {
+    os << abb.Niveles();
+    return os;
+}
